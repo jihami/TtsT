@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         //폼 서밋
 		//실제로는 서버에 폼을 전송하고 완료 메시지가 표시되지만 저장된 것으로 간주하고 폼을 초기화 함.
-        var r = querySelector('.review_textarea').value
+        let r = document.querySelector('.review_textarea').value
 		alert("저장완료!");
 		rating.setRate(0);
-		document.querySelector('.review_textarea').value = '';
+		document.querySelector('.review_textarea').value = r;
     });
 });
 
