@@ -1,0 +1,89 @@
+html, body{
+    background-color: #e8e8e8;
+    height: 100%;
+}
+a, a:hover, a:visited, a:active{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color: #a00;
+}
+h1{
+    text-align: center;
+    background-color: #fff;
+    padding: 5px;
+    margin: 0;
+}
+
+/* 레이아웃 외곽 너비 400px 제한*/
+.wrap{
+    max-width: 480px;
+    margin: 0 auto; /* 화면 가운데로 */
+    background-color: #fff;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+.reviewform textarea{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.rating .rate_radio {
+    position: relative;
+    display: inline-block;
+    z-index: 20;
+    opacity: 0.001;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    cursor: pointer;
+    vertical-align: top;
+    display: none;
+}
+.rating .rate_radio + label {
+    /*border: 1px solid black;*/
+    position: relative;
+    display: block;
+    float: left;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    background-image: url("../img/starrate.png");
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    cursor: pointer;
+}
+.rating .ratefill {
+    background-color: #ff8;
+    width: 0;
+    height: 60px;
+    position: absolute;
+}
+
+.cmd{
+    margin-top: 20px;
+    text-align: right;
+}
+.cmd input[type="button"]{
+    padding: 10px 20px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    background-color:#000;  
+    color: #fff;
+}
+
+.warning_msg {
+    display: none;
+    position: relative;
+    text-align: center;
+    background: #ffffff;
+    line-height: 26px;
+    width: 100%;
+    color: red;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+}
