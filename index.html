@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
-
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+</style>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,15 +36,15 @@
 <body>
   <div class="container">
     <section id="main" class="mx-auto my-5 py-5 px-3">
-      <h1>Type to Spend Time</h1>
-      <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto">
+      <p class="title">Type to Spend Time</p>
+      <div class="col-lg-5 col-md-7 col-sm-9 col-11 mx-auto">
         <img src="./img/main.png" alt="mainImage" class="img-fluid">
       </div>
       <p>
         나의 시간소비유형이 궁금하다면?<br>
         아래 시작하기 버튼을 눌러 시작해주세요
       </p>
-      <button type="button" class="btn btn-outline-danger mt-3" onclick="js:begin()">시작하기</button>
+      <button type="button" class="btn btn-outline-secondary mt-3" onclick="js:begin()">시작하기</button>
     </section>
     <section id="qna">
       <div class="status mx-auto mt-5">
@@ -67,7 +69,7 @@
       <div class="resultDesc">
 
       </div>
-      <button type="button" class="kakao mt-3 py-2 px-3" onclick="">공유하기</button>
+<!--      <button type="button" class="kakao mt-3 py-2 px-3" onclick="">공유하기</button>-->
     </section>
     <script src="./js/data.js" charset="utf-8"></script>
     <script src="./js/start.js" charset="utf-8"></script>
