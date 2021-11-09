@@ -1,7 +1,9 @@
 html, body{
-    background-color: #e8e8e8;
+    background-color: #90caf9;
     height: 100%;
 }
+
+
 a, a:hover, a:visited, a:active{
     text-decoration: none;
     color: #000;
@@ -18,13 +20,22 @@ h1{
 
 /* 레이아웃 외곽 너비 400px 제한*/
 .wrap{
-    max-width: 480px;
+    /*max-width: 480px;*/
     margin: 0 auto; /* 화면 가운데로 */
     background-color: #fff;
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: 50px;
 
+
+}
+#review{
+    background-color: #fff;
+    width: 68%;
+    text-align: center;
+    border-radius: 20px;
 }
 .reviewform textarea{
     width: 100%;
@@ -38,13 +49,12 @@ h1{
     opacity: 0.001;
     width: 60px;
     height: 60px;
-    background-color: #fff;
+    /*background-color: red;*/
     cursor: pointer;
     vertical-align: top;
     display: none;
 }
 .rating .rate_radio + label {
-    /*border: 1px solid black;*/
     position: relative;
     display: block;
     float: left;
@@ -56,11 +66,28 @@ h1{
     background-size: 60px 60px;
     cursor: pointer;
 }
-.rating .ratefill {
-    background-color: #ff8;
+
+
+.rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_ratefill {
     width: 0;
     height: 60px;
+}
+
+.ratefill {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffdd31;
+    width: 0;
+    height: 60px;
+
 }
 
 .cmd{
@@ -86,4 +113,8 @@ h1{
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #e0e0e0;
+}
+
+.review_contents{
+    margin-top: 30px;
 }
