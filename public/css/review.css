@@ -1,0 +1,120 @@
+html, body{
+    background-color: #90caf9;
+    height: 100%;
+}
+
+
+a, a:hover, a:visited, a:active{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color: #a00;
+}
+h1{
+    text-align: center;
+    background-color: #fff;
+    padding: 5px;
+    margin: 0;
+}
+
+/* 레이아웃 외곽 너비 400px 제한*/
+.wrap{
+    /*max-width: 480px;*/
+    margin: 0 auto; /* 화면 가운데로 */
+    background-color: #fff;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+
+}
+#review{
+    background-color: #fff;
+    width: 68%;
+    text-align: center;
+    border-radius: 20px;
+}
+.reviewform textarea{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.rating .rate_radio {
+    position: relative;
+    display: inline-block;
+    z-index: 20;
+    opacity: 0.001;
+    width: 60px;
+    height: 60px;
+    /*background-color: red;*/
+    cursor: pointer;
+    vertical-align: top;
+    display: none;
+}
+.rating .rate_radio + label {
+    position: relative;
+    display: block;
+    float: left;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    background-image: url("../img/starrate.png");
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    cursor: pointer;
+}
+
+
+.rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_ratefill {
+    width: 0;
+    height: 60px;
+}
+
+.ratefill {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffdd31;
+    width: 0;
+    height: 60px;
+
+}
+
+.cmd{
+    margin-top: 20px;
+    text-align: right;
+}
+.cmd input[type="button"]{
+    padding: 10px 20px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    background-color:#000;  
+    color: #fff;
+}
+
+.warning_msg {
+    display: none;
+    position: relative;
+    text-align: center;
+    background: #ffffff;
+    line-height: 26px;
+    width: 100%;
+    color: red;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+}
+
+.review_contents{
+    margin-top: 30px;
+}

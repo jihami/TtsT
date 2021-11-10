@@ -1,0 +1,14 @@
+#main{
+  background-color: whitesmoke;
+  width: 80%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+p{
+  font-size: 25px;
+}
+
+.title{
+  font-size: 50px;
+}
