@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     })
 
-    //상품평 작성 글자수 초과 체크 이벤트 리스너
+    //리뷰 작성 글자수 초과 체크 이벤트 리스너
     document.querySelector('.review_textarea').addEventListener('keydown',function(){
         //리뷰 400자 초과 안되게 자동 자름
         let review = document.querySelector('.review_textarea');
@@ -25,17 +25,25 @@ document.addEventListener('DOMContentLoaded', function(){
             rating.showMessage('rate');
             return false;
         }
+        //닉네임 3자 미만이면 메시지 표시
+        if(document.querySelector(".nickname_textarea").value.length < 2){
+            rating.showMessage("nickname");
+            return false;
+        }
         //리뷰 5자 미만이면 메시지 표시
         if(document.querySelector('.review_textarea').value.length < 5){
             rating.showMessage('review');
             return false;
         }
+
         //폼 서밋
 		//실제로는 서버에 폼을 전송하고 완료 메시지가 표시되지만 저장된 것으로 간주하고 폼을 초기화 함.
+        let n = document.querySelector('.nickname_textarea').value
         let r = document.querySelector('.review_textarea').value
 		alert("저장완료!");
 		rating.setRate(0);
-		document.querySelector('.review_textarea').value = r;
+		document.querySelector('.nickname_textarea').value = "";
+		document.querySelector('.review_textarea').value = "";
     });
 });
 
@@ -65,6 +73,14 @@ Rating.prototype.showMessage = function(type){//경고메시지 표시
             setTimeout(function(){
                 document.querySelector('.review_rating .warning_msg').style.display = 'none';
             },1000);            
+            break;
+        case 'nickname':
+            //안내메시지 표시
+            document.querySelector('.nickname_contents .warning_nickname').style.display = 'block';
+            //지정된 시간 후 안내 메시지 감춤
+            setTimeout(function(){
+                document.querySelector('.nickname_contents .warning_nickname').style.display = 'none';
+            },1000);
             break;
         case 'review':
             //안내메시지 표시

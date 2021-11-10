@@ -18,9 +18,8 @@ h1{
     margin: 0;
 }
 
-/* 레이아웃 외곽 너비 400px 제한*/
 .wrap{
-    /*max-width: 480px;*/
+    /*max-width: 480px; 레이아웃 외곽 너비 400px 제한*/
     margin: 0 auto; /* 화면 가운데로 */
     background-color: #fff;
     height: 100%;
@@ -28,8 +27,6 @@ h1{
     box-sizing: border-box;
     margin-top: 50px;
     margin-bottom: 50px;
-
-
 }
 #review{
     background-color: #fff;
@@ -37,10 +34,17 @@ h1{
     text-align: center;
     border-radius: 20px;
 }
+.review_nickname{
+    margin-top: 20px;
+}
+.review_contents{
+    margin-top: 0px;
+}
 .reviewform textarea{
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    resize: none;
 }
 .rating .rate_radio {
     position: relative;
@@ -90,19 +94,33 @@ h1{
 
 }
 
-.cmd{
+.list{
     margin-top: 20px;
     text-align: right;
+    float: right;
+}
+.cmd{
+    margin-top: 20px;
+    margin-right: 5px;
+    text-align: right;
+    float: right;
+}
+.list input[type="button"]{
+    padding: 10px 20px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    background-color:#000;
+    color: #fff;
 }
 .cmd input[type="button"]{
     padding: 10px 20px;
     border: 1px solid #e8e8e8;
     background-color: #fff;
-    background-color:#000;  
+    background-color:#000;
     color: #fff;
 }
 
-.warning_msg {
+.warning_msg{
     display: none;
     position: relative;
     text-align: center;
@@ -114,7 +132,15 @@ h1{
     box-sizing: border-box;
     border: 1px solid #e0e0e0;
 }
-
-.review_contents{
-    margin-top: 30px;
+.warning_nickname{
+    display: none;
+    position: relative;
+    text-align: center;
+    background: #ffffff;
+    line-height: 26px;
+    width: 100%;
+    color: red;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
 }
