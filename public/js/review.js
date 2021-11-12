@@ -54,6 +54,10 @@ document.addEventListener('DOMContentLoaded', function(){
 		rating.setRate(0);
 		document.querySelector('.nickname_textarea').value = r;
 		document.querySelector('.review_textarea').value = n;
+        //데이터베이스 참조 가져오기
+        let  database = firebase.database();
+        //데이터베이스 메세지 쓰기
+        firebase.database().ref(n).set({"name": n, "reviw":"kkk"});
     });
 });
 
