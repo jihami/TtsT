@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', click, false);
+var vn,vr;
+function click(){
     //별점선택 이벤트 리스너
     document.querySelector('.rating').addEventListener('click',function(e){
         let elem = e.target;
@@ -45,23 +47,26 @@ document.addEventListener('DOMContentLoaded', function(){
             rating.showMessage('review');
             return false;
         }
-
         //폼 서밋
-		//실제로는 서버에 폼을 전송하고 완료 메시지가 표시되지만 저장된 것으로 간주하고 폼을 초기화 함.
+        //실제로는 서버에 폼을 전송하고 완료 메시지가 표시되지만 저장된 것으로 간주하고 폼을 초기화 함.
         let n = document.querySelector('.nickname_textarea').value
-        let  r = document.querySelector('.review_textarea').value
-		alert("저장완료!");
-		rating.setRate(0);
-		document.querySelector('.nickname_textarea').value = r;
-		document.querySelector('.review_textarea').value = n;
-        //데이터베이스 참조 가져오기
-        let  database = firebase.database();
-        //데이터베이스 메세지 쓰기
-        firebase.database().ref(n).set({"name": n, "reviw":"kkk"});
+        let r = document.querySelector('.review_textarea').value
+        alert("저장완료!");
+        rating.setRate(0);
+        document.querySelector('.nickname_textarea').value = r;
+        document.querySelector('.review_textarea').value = n;
+        vn = n;
+        vr = r;
+        console.log(vn,vr)
+
+        // document.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>");
+        // document.write("<script src='https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js'></script>");
+        // document.write("<script src='https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js'></script>");
+        // document.write("<script src='https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js'></script>");
+        // document.write("<script src='./app.js'></script>");
+        // document.write("<script type='text/javascript' src='./database.js'></script>");
     });
-});
-
-
+}
 //별점 마킹 모듈 프로토타입으로 생성
 function Rating(){};
 Rating.prototype.rate = 0;

@@ -1,4 +1,7 @@
-var firebaseConfig = {
+// import firebase from "package:firebase_core/firebase_core.dart"
+//import firebase from "firebase/compat";
+
+const firebaseConfig = {
     apiKey: "AIzaSyA6LFw48XiIdVdfZxP34Xmr0QFifUlO4Ik",
     authDomain: "ttst-1f284.firebaseapp.com",
     databaseURL: "https://ttst-1f284-default-rtdb.firebaseio.com",
