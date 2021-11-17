@@ -48,23 +48,16 @@ function click(){
             return false;
         }
         //폼 서밋
-        //실제로는 서버에 폼을 전송하고 완료 메시지가 표시되지만 저장된 것으로 간주하고 폼을 초기화 함.
         let n = document.querySelector('.nickname_textarea').value
         let r = document.querySelector('.review_textarea').value
+        var database = firebase.database();
         alert("저장완료!");
         rating.setRate(0);
-        document.querySelector('.nickname_textarea').value = r;
-        document.querySelector('.review_textarea').value = n;
+        document.querySelector('.nickname_textarea').value = "";
+        document.querySelector('.review_textarea').value = "";
         vn = n;
         vr = r;
-        console.log(vn,vr)
-
-        // document.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>");
-        // document.write("<script src='https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js'></script>");
-        // document.write("<script src='https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js'></script>");
-        // document.write("<script src='https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js'></script>");
-        // document.write("<script src='./app.js'></script>");
-        // document.write("<script type='text/javascript' src='./database.js'></script>");
+        // console.log(vn,vr)
     });
 }
 //별점 마킹 모듈 프로토타입으로 생성
