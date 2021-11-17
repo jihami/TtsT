@@ -32,6 +32,7 @@ function click(){
 
     //저장 전송전 필드 체크 이벤트 리스너
     document.querySelector('#save').addEventListener('click', function(e){
+        let s = rating.rate
         //별점 선택 안했으면 메시지 표시
         if(rating.rate == 0){
             rating.showMessage('rate');
@@ -51,7 +52,7 @@ function click(){
         let n = document.querySelector('.nickname_textarea').value
         let r = document.querySelector('.review_textarea').value
         var database = firebase.database();
-        firebase.database().ref(n).set({rating, "review":r});
+        firebase.database().ref(n).set({"review":r, "star": s });
         alert("저장완료!");
         rating.setRate(0);
         document.querySelector('.nickname_textarea').value = "";
