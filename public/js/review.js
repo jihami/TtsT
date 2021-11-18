@@ -52,7 +52,7 @@ function click(){
         let n = document.querySelector('.nickname_textarea').value
         let r = document.querySelector('.review_textarea').value
         var database = firebase.database();
-        firebase.database().ref(n).set({"review":r, "star": s });
+        firebase.database().ref("db/"+n).set({"review":r, "star": s });
         alert("저장완료!");
         rating.setRate(0);
         document.querySelector('.nickname_textarea').value = "";
