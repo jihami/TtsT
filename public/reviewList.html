@@ -3,20 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>리뷰 목록</title>
+    <title>후기 목록</title>
     <link rel="stylesheet" href="css/reviewList.css"/>
-    <script type="text/javascript" src="js/reviewList.js"></script>
+<!--    <script type="text/javascript" src="js/reviewList.js"></script>-->
     <!-- jQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!--firebase 필수 요소-->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
     <!-- favicon -->
     <link rel="shortcut icon" href="img/icon.ico">
     <link rel="apple-touch-icon-precomposed" href="img/icon.ico">
 </head>
 <body>
-    <!--firebase 필수 요소-->
-    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+    <div id="List" class="wrap">
+        <h1>후기 목록</h1>
+        <form name="reviewList" class="reviewform" method="post" action="/save">
+            <div class="container">
+                <p class="name">이름</p>
+                <p class="review">리뷰</p>
+                <p class="star">별점</p>
+            </div>
+        </form>
+
+    </div>
     <script>
         var firebaseConfig = {
             apiKey: "AIzaSyA6LFw48XiIdVdfZxP34Xmr0QFifUlO4Ik",
@@ -30,44 +46,65 @@
         };
         firebase.initializeApp(firebaseConfig);
     </script>
-    <div id="review" class="wrap">
-        <h1>후기 목록</h1>
-        <form name="reviewform" class="reviewform" method="post" action="/save">
-            <input type="hidden" name="rate" id="rate" value="0"/>
-            <p class="title_star">별점과 이용후기를 남겨주세요.</p>
+    <script>
+        var cnt = 0;
+        const db = firebase.firestore();
+        db.collection("review").get().then((result)=>{
+            result.forEach((doc) => {
+                cnt +=1;
+                console.log(cnt);
 
-            <div class="review_rating rating_point">
-                <div class="warning_msg">별점을 선택해 주세요.</div>
-                <div class="rating">
-                    <span class="box_ratefill"><div class="ratefill"></div></span>
-                    <!-- [D] 해당 별점이 선택될 때 그 점수 이하의 input엘리먼트에 checked 클래스 추가 -->
-                    <input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1점">
-                    <label for="rating1"></label>
-                    <input type="checkbox" name="rating" id="rating2" value="2" class="rate_radio" title="2점">
-                    <label for="rating2"></label>
-                    <input type="checkbox" name="rating" id="rating3" value="3" class="rate_radio" title="3점" >
-                    <label for="rating3"></label>
-                    <input type="checkbox" name="rating" id="rating4" value="4" class="rate_radio" title="4점">
-                    <label for="rating4"></label>
-                    <input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5점">
-                    <label for="rating5"></label>
-                </div>
-            </div>
-            <div class="nickname_contents">
-                <div class="warning_nickname">2자 이상의 닉네임을 작성해 주세요.</div>
-                <textarea id="nickname" rows="1" class="nickname_textarea" placeholder="2자 이상의 닉네임을 작성해 주세요."></textarea>
-            </div>
-            <div class="review_contents">
-                <div class="warning_msg">5자 이상의 리뷰 내용을 작성해 주세요.</div>
-                <textarea id="msg" rows="10" class="review_textarea" placeholder="5자 이상의 리뷰 내용을 작성해 주세요."></textarea>
-            </div>
-            <div class="cmd">
-                <input type="button" name="save" id="save" value="등록">
-            </div>
-            <div class="list">
-                <input type="button" name="list" id="list" value="목록">
-            </div>
-        </form>
-    </div>
+                console.log(doc.data());
+                if (doc.data().star == 1) {
+                    var star = "⭐"
+                }else if(doc.data().star == 2){
+                    star = "⭐⭐"
+                }else if(doc.data().star == 3){
+                    star = "⭐⭐⭐"
+                }else if(doc.data().star == 4){
+                    star = "⭐⭐⭐⭐"
+                }else{
+                    star = "⭐⭐⭐⭐⭐"
+                }
+                // var temp =
+                //     `<br/>
+                //      <table>
+                //         <th><td>${doc.data().name}</td></th>
+                //         <th><td>${doc.data().review}</td></th>
+                //         <th><td>${star}</td></th>
+                //     </table>
+                //     <br/>`;
+                var temp =
+                    `<br/>
+                     <table>
+                        <th><td>${doc.data().name}</td></th>
+                        <th><td>${doc.data().review}</td></th>
+                        <th><td>${star}</td></th>
+                    </table>
+                    <br/>`;
+                $(".container").append(temp);
+            });
+        });
+    </script>
+
+
+
+<!--    var cnt = 0;-->
+<!--    const db = firebase.firestore();-->
+<!--    db.collection("review").get().then((result)=>{-->
+<!--    result.forEach((doc) => {-->
+<!--    cnt +=1;-->
+<!--    console.log(cnt);-->
+<!--    console.log(doc.data());-->
+<!--    var temp =-->
+<!--    `<div class="container">-->
+<!--        <p>${doc.data().name}</p>-->
+<!--        <p>${doc.data().review}</p>-->
+<!--        <p>${doc.data().star}</p>-->
+<!--    </div>`;-->
+<!--    $(".container").append(temp);-->
+<!--    })-->
+<!--    })-->
+
 </body>
 </html>
