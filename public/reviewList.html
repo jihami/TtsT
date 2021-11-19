@@ -25,11 +25,9 @@
     <div id="List" class="wrap">
         <h1>후기 목록</h1>
         <form name="reviewList" class="reviewform" method="post" action="/save">
-            <div class="container">
                 <p class="name">이름</p>
                 <p class="review">리뷰</p>
                 <p class="star">별점</p>
-            </div>
         </form>
 
     </div>
@@ -53,7 +51,6 @@
             result.forEach((doc) => {
                 cnt +=1;
                 console.log(cnt);
-
                 console.log(doc.data());
                 if (doc.data().star == 1) {
                     var star = "⭐"
@@ -66,23 +63,12 @@
                 }else{
                     star = "⭐⭐⭐⭐⭐"
                 }
-                // var temp =
-                //     `<br/>
-                //      <table>
-                //         <th><td>${doc.data().name}</td></th>
-                //         <th><td>${doc.data().review}</td></th>
-                //         <th><td>${star}</td></th>
-                //     </table>
-                //     <br/>`;
-                var temp =
-                    `<br/>
-                     <table>
-                        <th><td>${doc.data().name}</td></th>
-                        <th><td>${doc.data().review}</td></th>
-                        <th><td>${star}</td></th>
-                    </table>
-                    <br/>`;
-                $(".container").append(temp);
+                var ne = `<br/><p id="dn">${doc.data().name}</p><br/>`
+                var re = `<br/><p id="dr">${doc.data().review}</p><br/>`
+                var st = `<br/><p id="ds">${star}</p><br/>`
+                $(".name").append(ne);
+                $(".review").append(re);
+                $(".star").append(st);
             });
         });
     </script>
