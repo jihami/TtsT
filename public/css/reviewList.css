@@ -1,0 +1,79 @@
+html, body{
+    background-color: #90caf9;
+    height: 97%;
+}
+a, a:hover, a:visited, a:active{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color: #a00;
+}
+h1{
+    font-size: 50px;
+    text-align: center;
+    background-color: #fff;
+    padding: 5px;
+    margin: 0;
+}
+.wrap{
+        /*max-width: 480px; 레이아웃 외곽 너비 400px 제한*/
+        margin: 0 auto; /* 화면 가운데로 */
+        background-color: #fff;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        margin-top: 50px;
+        margin-bottom: 50px;
+}
+#List{
+    background-color: #fff;
+    width: 50%;
+    text-align: center;
+    border-radius: 20px;
+}
+p{
+    /*border: 1px solid red;*/
+    display: inline-block;
+}
+.name, .review, .star{
+    font-size: 35px;
+    display: inline-block;
+}
+.name{
+    margin-right: 60px;
+}
+.star{
+    margin-left: 60px;
+}
+#dn, #dr, #ds{
+    /*margin-top: 0px;*/
+    font-size: 20px;
+    display: inline-block;
+}
+
+.list{
+    margin-top: 20px;
+    text-align: right;
+    float: right;
+}
+.cmd{
+    margin-top: 20px;
+    margin-right: 5px;
+    text-align: right;
+    float: right;
+}
+.list input[type="button"]{
+    padding: 10px 20px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    background-color:#000;
+    color: #fff;
+}
+.cmd input[type="button"]{
+    padding: 10px 20px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    background-color:#000;
+    color: #fff;
+}

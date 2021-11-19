@@ -10,11 +10,37 @@
 <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
-<!--firebase api키 및 정보 js-->
-<script type = "text/javascript" src = "./js/app.js"></script>
-<!--firebase database js-->
-<script type = "text/javascript" src = "./js/database.js"></script>
 
+<!--<script-->
+<!--        src="https://code.jquery.com/jquery-3.6.0.min.js"-->
+<!--        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="-->
+<!--        crossorigin="anonymous"></script>-->
+
+<!--firebase api키 및 정보 js-->
+<!--<script type = "text/javascript" src = "./js/app.js"></script>-->
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyA6LFw48XiIdVdfZxP34Xmr0QFifUlO4Ik",
+        authDomain: "ttst-1f284.firebaseapp.com",
+        databaseURL: "https://ttst-1f284-default-rtdb.firebaseio.com",
+        projectId: "ttst-1f284",
+        storageBucket: "ttst-1f284.appspot.com",
+        messagingSenderId: "907858494375",
+        appId: "1:907858494375:web:e8d519daa827cd6a076c82",
+        measurementId: "G-BZ7Q1188LB"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig)
+</script>
+<!--firebase database js-->
+<!--<script type = "text/javascript" src = "./js/database.js"></script>-->
+<script>
+    var database = firebase.database();
+
+    //데이터베이스 메세지 쓰기
+    // firebase.database().ref(vr).set('hi');
+    firebase.database().ref('test/test').set({"name": "이름mmmm이야", "intro":"kkdddddddddk"});
+</script>
 <!---------------------HTML 영역--------------------->
 html
 </body>

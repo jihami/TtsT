@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후기 목록</title>
+    <link rel="stylesheet" href="css/reviewList.css"/>
+<!--    <script type="text/javascript" src="js/reviewList.js"></script>-->
+    <!-- jQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!--firebase 필수 요소-->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/icon.ico">
+    <link rel="apple-touch-icon-precomposed" href="img/icon.ico">
+</head>
+<body>
+
+    <div id="List" class="wrap">
+        <h1>후기 목록</h1>
+        <form name="reviewList" class="reviewform" method="post" action="/save">
+                <p class="name">이름</p>
+                <p class="review">리뷰</p>
+                <p class="star">별점</p>
+        </form>
+        <div class="list" onclick="location.href='index.html'">
+            <input type="button" name="list" id="lis" value="홈">
+        </div>
+    </div>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyA6LFw48XiIdVdfZxP34Xmr0QFifUlO4Ik",
+            authDomain: "ttst-1f284.firebaseapp.com",
+            databaseURL: "https://ttst-1f284-default-rtdb.firebaseio.com",
+            projectId: "ttst-1f284",
+            storageBucket: "ttst-1f284.appspot.com",
+            messagingSenderId: "907858494375",
+            appId: "1:907858494375:web:e8d519daa827cd6a076c82",
+            measurementId: "G-BZ7Q1188LB"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+        var cnt = 0;
+        const db = firebase.firestore();
+        db.collection("review").get().then((result)=>{
+            result.forEach((doc) => {
+                cnt +=1;
+                console.log(cnt);
+                console.log(doc.data());
+                if (doc.data().star == 1) {
+                    var star = "⭐"
+                }else if(doc.data().star == 2){
+                    star = "⭐⭐"
+                }else if(doc.data().star == 3){
+                    star = "⭐⭐⭐"
+                }else if(doc.data().star == 4){
+                    star = "⭐⭐⭐⭐"
+                }else{
+                    star = "⭐⭐⭐⭐⭐"
+                }
+                var ne = `<br/><p id="dn">${doc.data().name}</p><br/>`
+                var re = `<br/><p id="dr">${doc.data().review}</p><br/>`
+                var st = `<br/><p id="ds">${star}</p><br/>`
+                $(".name").append(ne);
+                $(".review").append(re);
+                $(".star").append(st);
+            });
+        });
+    </script>
+</body>
+</html>
