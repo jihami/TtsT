@@ -52,13 +52,46 @@ function click(){
         let n = document.querySelector('.nickname_textarea').value
         let r = document.querySelector('.review_textarea').value
         const db = firebase.firestore();
-        db.collection("review").add({name : n, review : r, star : s})
-        alert("저장완료!");
-        rating.setRate(0);
-        document.querySelector('.nickname_textarea').value = "";
-        document.querySelector('.review_textarea').value = "";
-        vn = n;
-        vr = r;
+        var re = 0;
+        db.collection("review").get().then((result)=>{
+            result.forEach((doc) => {
+               if (n==doc.data().name){
+                   re += 1;
+                   console.log("중복");
+               }else if(n!=doc.data().name){
+                   re += 0;
+                   console.log("중복 아님");
+               }// if
+            }); //forEach
+            console.log(re);
+            if(re==0){
+                f1();
+            }else {
+                f();
+            }
+        }); //db
+        function f() {
+            alert("중복입니다. 다시 입력해주세요");
+            document.querySelector('.nickname_textarea').value = "";
+            document.querySelector('.review_textarea').value = r;
+        }
+        function f1() {
+            db.collection("review").add({name : n, review : r, star : s});
+            alert("저장완료!");
+            rating.setRate(0);
+            document.querySelector('.nickname_textarea').value = "";
+            document.querySelector('.review_textarea').value = "";
+        }
+
+
+        // const db = firebase.firestore();
+        // db.collection("review").add({name : n, review : r, star : s})
+        // alert("저장완료!");
+        // rating.setRate(0);
+        // document.querySelector('.nickname_textarea').value = "";
+        // document.querySelector('.review_textarea').value = "";
+        // vn = n;
+        // vr = r;
         // console.log(vn,vr)
     });
 }

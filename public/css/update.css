@@ -12,6 +12,7 @@ a:hover{
     color: #a00;
 }
 h1{
+    font-size: 50px;
     text-align: center;
     background-color: #fff;
     padding: 5px;
@@ -30,7 +31,7 @@ h1{
 }
 #review{
     background-color: #fff;
-    width: 68%;
+    width: 60%;
     text-align: center;
     border-radius: 20px;
 }
