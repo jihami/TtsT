@@ -22,17 +22,22 @@
 </head>
 <body>
 
-    <div id="List" class="wrap">
-        <h1>후기 목록</h1>
-        <form name="reviewList" class="reviewform" method="post" action="/save">
-                <p class="name">이름</p>
-                <p class="review">리뷰</p>
-                <p class="star">별점</p>
-        </form>
-        <div class="list" onclick="location.href='index.html'">
-            <input type="button" name="list" id="lis" value="홈">
+<!--    <div id="List" class="wrap">-->
+<!--    </div>-->
+    <h1>후기 목록</h1>
+
+    <div class="db">
+        <div class="data">
+            <p class="name">이름</p>
+            <p class="review">리뷰</p>
+            <p class="star">별점</p>
         </div>
     </div>
+    <div class="list" onclick="location.href='index.html'">
+        <input type="button" name="list" id="lis" value="홈">
+    </div>
+
+
     <script>
         var firebaseConfig = {
             apiKey: "AIzaSyA6LFw48XiIdVdfZxP34Xmr0QFifUlO4Ik",
@@ -65,9 +70,9 @@
                 }else{
                     star = "⭐⭐⭐⭐⭐"
                 }
-                var ne = `<br/><p id="dn">${doc.data().name}</p><br/>`
-                var re = `<br/><p id="dr">${doc.data().review}</p><br/>`
-                var st = `<br/><p id="ds">${star}</p><br/>`
+                var ne = `<br/><p id="dn">${doc.data().name}</p>`
+                var re = `<br/><p id="dr">${doc.data().review}</p>`
+                var st = `<br/><p id="ds">${star}</p>`
                 $(".name").append(ne);
                 $(".review").append(re);
                 $(".star").append(st);
