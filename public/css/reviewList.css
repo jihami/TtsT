@@ -1,8 +1,14 @@
 html, body{
     background-color: #90caf9;
-    height: 100%;
+    height: 97%;
 }
-
+a, a:hover, a:visited, a:active{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color: #a00;
+}
 h1{
     font-size: 50px;
     text-align: center;
@@ -10,7 +16,6 @@ h1{
     padding: 5px;
     margin: 0;
 }
-
 .wrap{
         /*max-width: 480px; 레이아웃 외곽 너비 400px 제한*/
         margin: 0 auto; /* 화면 가운데로 */
@@ -41,12 +46,34 @@ p{
 .star{
     margin-left: 60px;
 }
-table{
-    border: 1px solid red;
-    width: 100%;
-    text-align: center;
-}
 #dn, #dr, #ds{
+    /*margin-top: 0px;*/
     font-size: 20px;
     display: inline-block;
+}
+
+.list{
+    margin-top: 20px;
+    text-align: right;
+    float: right;
+}
+.cmd{
+    margin-top: 20px;
+    margin-right: 5px;
+    text-align: right;
+    float: right;
+}
+.list input[type="button"]{
+    padding: 10px 20px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    background-color:#000;
+    color: #fff;
+}
+.cmd input[type="button"]{
+    padding: 10px 20px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    background-color:#000;
+    color: #fff;
 }

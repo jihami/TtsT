@@ -29,7 +29,9 @@
                 <p class="review">리뷰</p>
                 <p class="star">별점</p>
         </form>
-
+        <div class="list" onclick="location.href='index.html'">
+            <input type="button" name="list" id="lis" value="홈">
+        </div>
     </div>
     <script>
         var firebaseConfig = {
@@ -72,25 +74,5 @@
             });
         });
     </script>
-
-
-
-<!--    var cnt = 0;-->
-<!--    const db = firebase.firestore();-->
-<!--    db.collection("review").get().then((result)=>{-->
-<!--    result.forEach((doc) => {-->
-<!--    cnt +=1;-->
-<!--    console.log(cnt);-->
-<!--    console.log(doc.data());-->
-<!--    var temp =-->
-<!--    `<div class="container">-->
-<!--        <p>${doc.data().name}</p>-->
-<!--        <p>${doc.data().review}</p>-->
-<!--        <p>${doc.data().star}</p>-->
-<!--    </div>`;-->
-<!--    $(".container").append(temp);-->
-<!--    })-->
-<!--    })-->
-
 </body>
 </html>
