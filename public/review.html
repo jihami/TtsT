@@ -11,6 +11,9 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="img/icon.ico">
     <link rel="apple-touch-icon-precomposed" href="img/icon.ico">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
     <!--firebase 필수 요소-->
@@ -35,7 +38,7 @@
         <form name="reviewform" class="reviewform" method="post" action="/save">
             <input type="hidden" name="rate" id="rate" value="0"/>
             <p class="title_star">별점과 이용후기를 남겨주세요.</p>
-     
+
             <div class="review_rating rating_point">
                 <div class="warning_msg">별점을 선택해 주세요.</div>
                 <div class="rating">
@@ -55,7 +58,7 @@
             </div>
             <div class="nickname_contents">
                 <div class="warning_nickname">2자 이상의 닉네임을 작성해 주세요.</div>
-                <textarea id="nickname" rows="1" class="nickname_textarea" placeholder="2자 이상의 닉네임을 작성해 주세요."></textarea>
+                <textarea id="nickname" rows="2" class="nickname_textarea" placeholder="2자 이상의 닉네임을 작성해 주세요."></textarea>
             </div>
             <div class="review_contents">
                 <div class="warning_msg">5자 이상의 리뷰 내용을 작성해 주세요.</div>

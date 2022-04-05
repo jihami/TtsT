@@ -17,7 +17,10 @@ h1{
     padding: 5px;
     margin: 0;
 }
-
+textarea{
+    border: 1px solid white;
+    border-bottom: 1px solid gray;
+}
 .wrap{
     /*max-width: 480px; 레이아웃 외곽 너비 400px 제한*/
     margin: 0 auto; /* 화면 가운데로 */
