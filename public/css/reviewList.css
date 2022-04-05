@@ -12,13 +12,29 @@ a:hover{
 h1{
     font-size: 50px;
     text-align: center;
-    background-color: #fff;
+    /*background-color: #fff;*/
     padding: 5px;
     margin: 50px;
 }
 .data{
+    width: 90%;
+    background-color: white;
     text-align: center;
     display: inline-block;
+}
+.name{
+    padding-left: 30px;
+    padding-right: 50px;
+}
+.review{
+    padding-left: 50px;
+    padding-right: 50px;
+    border-left: 1px solid rgba(102, 102, 102, 0.17);
+    border-right: 1px solid rgba(102, 102, 102, 0.17);
+}
+.star{
+    padding-left: 50px;
+    padding-right: 30px;
 }
 p{
     font-size: 30px;
