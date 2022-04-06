@@ -72,13 +72,13 @@ function click(){
             document.querySelector('.nickname_textarea').value = "";
             document.querySelector('.review_textarea').value = r;
         }
-        function f1() {
-            db.collection("review").add({name: n, review: r, star: s});
+        async function f1() {
+            await db.collection("review").add({name: n, review: r, star: s}); // 비동기여서 await 로써주면 됌!!
             alert("저장완료!");
             rating.setRate(0);
             document.querySelector('.nickname_textarea').value = "";
             document.querySelector('.review_textarea').value = "";
-            // location.href = "../../../TtsT/public/reviewList.html";
+            location.href = "../../../TtsT/public/reviewList.html";
         }
     });
 }
