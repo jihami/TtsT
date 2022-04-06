@@ -51,15 +51,35 @@ function click(){
         //폼 서밋
         let n = document.querySelector('.nickname_textarea').value
         let r = document.querySelector('.review_textarea').value
-        var database = firebase.database();
-        firebase.database().ref("db/"+n).set({"review":r, "star": s });
-        alert("저장완료!");
-        rating.setRate(0);
-        document.querySelector('.nickname_textarea').value = "";
-        document.querySelector('.review_textarea').value = "";
-        vn = n;
-        vr = r;
-        // console.log(vn,vr)
+        const db = firebase.firestore();
+        var re = 0;
+        db.collection("review").get().then((result)=>{
+            result.forEach((doc) => {
+                if (n==doc.data().name){
+                    re += 1;
+                }else if(n!=doc.data().name){
+                    re += 0;
+                }// if
+            }); //forEach
+            if(re==0){
+                f1();
+            }else {
+                f();
+            }
+        }); //db
+        function f() {
+            alert("중복입니다. 다시 입력해주세요");
+            document.querySelector('.nickname_textarea').value = "";
+            document.querySelector('.review_textarea').value = r;
+        }
+        function f1() {
+            db.collection("review").add({name: n, review: r, star: s});
+            alert("저장완료!");
+            rating.setRate(0);
+            document.querySelector('.nickname_textarea').value = "";
+            document.querySelector('.review_textarea').value = "";
+            // location.href = "../../../TtsT/public/reviewList.html";
+        }
     });
 }
 //별점 마킹 모듈 프로토타입으로 생성
@@ -108,3 +128,4 @@ Rating.prototype.showMessage = function(type){//경고메시지 표시
 }
 
 let rating = new Rating();//별점 인스턴스 생성
+
