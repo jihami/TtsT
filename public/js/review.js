@@ -75,7 +75,7 @@ function click(){
             rating.setRate(0);
             document.querySelector('.nickname_textarea').value = "";
             document.querySelector('.review_textarea').value = "";
-            location.href = "../public/reviewList.html";
+            location.href = "../reviewList.html";
         }
     });
 }
