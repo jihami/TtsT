@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', click, false);
-var vn,vr;
 function click(){
-    //별점선택 이벤트 리스너
+    //별점선택
     document.querySelector('.rating').addEventListener('click',function(e){
         let elem = e.target;
         if(elem.classList.contains('rate_radio')){
             rating.setRate(parseInt(elem.value));
         }
-    })
-
-    //리뷰 작성 글자수 초과 체크 이벤트 리스너
+    });
+    //리뷰 글자수 초과 체크
     document.querySelector('.review_textarea').addEventListener('keydown',function(){
         //리뷰 400자 초과 안되게 자동 자름
         let review = document.querySelector('.review_textarea');
@@ -19,7 +17,7 @@ function click(){
             review.value = review.value.substr(0,400);
         }
     });
-    //닉네임 작성 글자수 초과 체크 이벤트 리스너
+    //닉네임 글자수 초과 체크
     document.querySelector('.nickname_textarea').addEventListener('keydown',function(){
         //닉네임 10자 초과 안되게 자동 자름
         let review = document.querySelector('.nickname_textarea');
@@ -29,64 +27,63 @@ function click(){
             nickname.value = nickname.value.substr(0,10);
         }
     });
-
-    //저장 전송전 필드 체크 이벤트 리스너
+    //저장전 체크
     document.querySelector('#save').addEventListener('click', function(e){
         let s = rating.rate
-        //별점 선택 안했으면 메시지 표시
+        //별점 미선택시 경고 메시지
         if(rating.rate == 0){
             rating.showMessage('rate');
             return false;
         }
-        //닉네임 3자 미만이면 메시지 표시
+        //닉네임 3자 이하면 경고 메시지
         if(document.querySelector(".nickname_textarea").value.length < 2){
             rating.showMessage("nickname");
             return false;
         }
-        //리뷰 5자 미만이면 메시지 표시
+        //리뷰 4자 이하면 메시지 표시
         if(document.querySelector('.review_textarea').value.length < 5){
             rating.showMessage('review');
             return false;
         }
-        //폼 서밋
-        let n = document.querySelector('.nickname_textarea').value
-        let r = document.querySelector('.review_textarea').value
+        //데이터 전달
+        let nickName = document.querySelector('.nickname_textarea').value
+        let review = document.querySelector('.review_textarea').value
         const db = firebase.firestore();
         var re = 0;
         db.collection("review").get().then((result)=>{
             result.forEach((doc) => {
-                if (n==doc.data().name){
+                if (nickName==doc.data().name){
                     re += 1;
-                }else if(n!=doc.data().name){
+                }else if(nickName!=doc.data().name){
                     re += 0;
                 }// if
             }); //forEach
             if(re==0){
-                f1();
+                success();
             }else {
-                f();
+                overlap();
             }
         }); //db
-        function f() {
+        function overlap() {
             alert("중복입니다. 다시 입력해주세요");
             document.querySelector('.nickname_textarea').value = "";
-            document.querySelector('.review_textarea').value = r;
+            document.querySelector('.review_textarea').value = review;
         }
-        async function f1() {
-            await db.collection("review").add({name: n, review: r, star: s}); // 비동기여서 await 로써주면 됌!!
+        async function success() { //저장완료시 결과페이지로 넘어가도록
+            await db.collection("review").add({name: nickName, review: review, star: s}); // 비동기여서 await 로써주면 됌!!
             alert("저장완료!");
             rating.setRate(0);
             document.querySelector('.nickname_textarea').value = "";
             document.querySelector('.review_textarea').value = "";
-            location.href = "../reviewList.html";
+            location.href = "../public/reviewList.html";
         }
     });
 }
-//별점 마킹 모듈 프로토타입으로 생성
+//별점 마킹
 function Rating(){};
 Rating.prototype.rate = 0;
 Rating.prototype.setRate = function(newrate){
-    //별점 마킹 - 클릭한 별 이하 모든 별 체크 처리
+    //별점 표시
     this.rate = newrate;
     document.querySelector('.ratefill').style.width = parseInt(newrate * 60) + 'px';
     let items = document.querySelectorAll('.rate_radio');
@@ -126,6 +123,4 @@ Rating.prototype.showMessage = function(type){//경고메시지 표시
             break;
     }
 }
-
-let rating = new Rating();//별점 인스턴스 생성
-
+let rating = new Rating();//별점 인스턴스

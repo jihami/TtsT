@@ -5,39 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>후기 목록</title>
     <link rel="stylesheet" href="css/reviewList.css"/>
-<!--    <script type="text/javascript" src="js/reviewList.js"></script>-->
     <!-- jQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
     <!--firebase 필수 요소-->
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
-
-    <!-- favicon -->
-    <link rel="shortcut icon" href="img/icon.ico">
-    <link rel="apple-touch-icon-precomposed" href="img/icon.ico">
-</head>
-<body>
-
-<!--    <div id="List" class="wrap">-->
-<!--    </div>-->
-    <h1>후기 목록</h1>
-
-    <div class="db">
-        <div class="data">
-            <p class="name">이름</p>
-            <p class="review">리뷰</p>
-            <p class="star">별점</p>
-        </div>
-    </div>
-    <div class="list" onclick="location.href='index.html'">
-        <input type="button" name="list" id="lis" value="홈">
-    </div>
-
-
     <script>
         var firebaseConfig = {
             apiKey: "AIzaSyA6LFw48XiIdVdfZxP34Xmr0QFifUlO4Ik",
@@ -51,6 +26,21 @@
         };
         firebase.initializeApp(firebaseConfig);
     </script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/icon.ico">
+</head>
+<body>
+    <h1>후기 목록</h1>
+    <div class="db">
+        <div class="data">
+            <p class="name">이름</p>
+            <p class="review">리뷰</p>
+            <p class="star">별점</p>
+        </div>
+    </div>
+    <div class="list" onclick="location.href='index.html'">
+        <input type="button" name="list" id="lis" value="홈">
+    </div>
     <script>
         var cnt = 0;
         const db = firebase.firestore();

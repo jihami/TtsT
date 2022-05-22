@@ -3,8 +3,6 @@ const qna = document.querySelector("#qna");
 const result = document.querySelector("#result");
 const review = document.querySelector("#write_review");
 
-
-
 const endPoint = 10;
 const select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -82,7 +80,6 @@ function goNext(qIdx){
     goResult();
     return;
   }
-
   var q = document.querySelector('.qBox');
   q.innerHTML = qnaList[qIdx].q;
   for(let i in qnaList[qIdx].a){
@@ -106,17 +103,3 @@ function begin(){
     goNext(qIdx);
   }, 450);
 }
-
-// function write_review(){
-//   result.style.WebkitAnimation = "fadeOut 1s";
-//   result.style.animation = "fadeOut 1s";
-//   setTimeout(() => {
-//     review.style.WebkitAnimation = "fadeIn 1s";
-//     review.style.animation = "fadeIn 1s";
-//     setTimeout(() => {
-//       result.style.display = "none";
-//       review.style.display = "block"
-//     }, 450)
-//
-//   }, 450);
-// }
