@@ -42,12 +42,9 @@
         <input type="button" name="list" id="lis" value="홈">
     </div>
     <script>
-        var cnt = 0;
         const db = firebase.firestore();
         db.collection("review").get().then((result)=>{
             result.forEach((doc) => {
-                cnt +=1;
-                console.log(cnt);
                 console.log(doc.data());
                 if (doc.data().star == 1) {
                     var star = "⭐"
