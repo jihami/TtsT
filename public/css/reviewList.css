@@ -20,6 +20,7 @@ h1{
     background-color: white;
     text-align: center;
     display: inline-block;
+    border-radius: 20px;
 }
 .name{
     padding-left: 30px;
@@ -46,7 +47,7 @@ p{
 }
 .db{
     display: flex;
-    justify-content: center; /*가로*/
+    justify-content: center;
     min-height: 100vh;
 }
 .list{
@@ -56,15 +57,13 @@ p{
  }
 .list input[type="button"]{
     padding: 10px 20px;
-    border: 1px solid #e8e8e8;
-    background-color: #fff;
-    background-color:#000;
-    color: #fff;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 5px;
 }
 .cmd input[type="button"]{
     padding: 10px 20px;
-    border: 1px solid #e8e8e8;
-    background-color: #fff;
-    background-color:#000;
-    color: #fff;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 5px;
 }
