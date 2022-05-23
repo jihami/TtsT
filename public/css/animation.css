@@ -1,8 +1,10 @@
+/* 요소 시작 */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
+/*요소가 끝날때*/
 @keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; }

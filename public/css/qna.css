@@ -34,15 +34,5 @@
 .statusBar {
   height: 100%;
   border-radius: 20px;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#febbbb+0,fe9090+52,ff5c5c+100;Red+3D+%231 */
   background: #004ba0;
-  /* Old browsers */
-  /*background: -moz-linear-gradient(top, #febbbb 0%, #fe9090 52%, #ff5c5c 100%);*/
-  /*!* FF3.6-15 *!*/
-  /*background: -webkit-linear-gradient(top, #febbbb 0%, #fe9090 52%, #ff5c5c 100%);*/
-  /*!* Chrome10-25,Safari5.1-6 *!*/
-  /*background: linear-gradient(to bottom, #febbbb 0%, #fe9090 52%, #ff5c5c 100%);*/
-  /*!* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
-  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#febbbb', endColorstr='#ff5c5c', GradientType=0);*/
-  /*!* IE6-9 *!*/
 }

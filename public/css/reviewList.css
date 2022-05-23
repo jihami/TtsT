@@ -12,7 +12,6 @@ a:hover{
 h1{
     font-size: 50px;
     text-align: center;
-    /*background-color: #fff;*/
     padding: 5px;
     margin: 50px;
 }
@@ -38,7 +37,6 @@ h1{
 }
 p{
     font-size: 30px;
-    /*border: 1px solid red;*/
     display: inline-block;
     font-weight: normal;
 }
@@ -49,7 +47,6 @@ p{
 .db{
     display: flex;
     justify-content: center; /*가로*/
-    /*align-items: center;*/ /*세로*/
     min-height: 100vh;
 }
 .list{

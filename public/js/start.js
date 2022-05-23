@@ -75,6 +75,7 @@ function addAnswer(answerText, qIdx, idx){
   }, false);
 }
 
+// 다음으로 넘어가기
 function goNext(qIdx){
   if(qIdx === endPoint){
     goResult();
@@ -90,15 +91,20 @@ function goNext(qIdx){
 }
 
 function begin(){
+  //애니메이션 기능
   main.style.WebkitAnimation = "fadeOut 1s";
   main.style.animation = "fadeOut 1s";
+
   setTimeout(() => {
     qna.style.WebkitAnimation = "fadeIn 1s";
     qna.style.animation = "fadeIn 1s";
+
+    //450초 후에 메인이 꺼지고 QnA 페이지 보이도록
     setTimeout(() => {
       main.style.display = "none";
       qna.style.display = "block"
     }, 450)
+
     let qIdx = 0;
     goNext(qIdx);
   }, 450);
