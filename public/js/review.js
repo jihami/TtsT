@@ -9,27 +9,25 @@ function click(){
     });
     //리뷰 글자수 초과 체크
     document.querySelector('.review_textarea').addEventListener('keydown',function(){
-        //리뷰 400자 초과 안되게 자동 자름
         let review = document.querySelector('.review_textarea');
-        let lengthCheckEx = /^.{400,}$/;
+        let lengthCheckEx = /^.{400,}$/; // 4000자 이상인지 확인하는 정규 표현식
         if(lengthCheckEx.test(review.value)){
-            //400자 초과 컷
+            //400자 초과일때 자르기
             review.value = review.value.substr(0,400);
         }
     });
     //닉네임 글자수 초과 체크
     document.querySelector('.nickname_textarea').addEventListener('keydown',function(){
-        //닉네임 10자 초과 안되게 자동 자름
-        let review = document.querySelector('.nickname_textarea');
+        let nickname = document.querySelector('.nickname_textarea');
         let lengthCheckEx = /^.{10,}$/;
         if(lengthCheckEx.test(nickname.value)){
-            //400자 초과 컷
+            //400자 초과일때 자르기
             nickname.value = nickname.value.substr(0,10);
         }
     });
     //저장전 체크
-    document.querySelector('#save').addEventListener('click', function(e){
-        let s = rating.rate
+    document.querySelector('#save').addEventListener('click', function(e){ //파라메터로 메시지 타입을 구분해 표시
+        let star = rating.rate
         //별점 미선택시 경고 메시지
         if(rating.rate == 0){
             rating.showMessage('rate');
@@ -49,7 +47,8 @@ function click(){
         let nickName = document.querySelector('.nickname_textarea').value
         let review = document.querySelector('.review_textarea').value
         const db = firebase.firestore();
-        var re = 0;
+        let re = 0;
+        // 닉네임 중복체크
         db.collection("review").get().then((result)=>{
             result.forEach((doc) => {
                 if (nickName==doc.data().name){
@@ -70,7 +69,7 @@ function click(){
             document.querySelector('.review_textarea').value = review;
         }
         async function success() { //저장완료시 결과페이지로 넘어가도록
-            await db.collection("review").add({name: nickName, review: review, star: s}); // 비동기여서 await 로써주면 됌!!
+            await db.collection("review").add({name: nickName, review: review, star: star}); // 비동기여서 await 로써주면 됌!!
             alert("저장완료!");
             rating.setRate(0);
             document.querySelector('.nickname_textarea').value = "";
